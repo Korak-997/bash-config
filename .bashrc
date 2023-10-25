@@ -147,7 +147,7 @@ PROMPT_COMMAND='history -a'
 # Don't put duplicate lines in the history and do not add lines that start with a space
 export HISTCONTROL=erasedups:ignoredups:ignorespace
 
-eval "$(oh-my-posh init bash --config '~/.mytheme.omp.json')"
+eval "$(oh-my-posh init bash --config 'https://raw.githubusercontent.com/Korak-997/bash-config/master/.kdracula.omp.json')"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
