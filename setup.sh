@@ -74,17 +74,11 @@ installDepend() {
     fi
 }
 
-installStarship(){
-    if command_exists starship; then
-        echo "Starship already installed"
-        return
-    fi
-
-    if ! curl -sS https://starship.rs/install.sh|sh;then
-        echo -e "${RED}Something went wrong during starship install!${RC}"
-        exit 1
-    fi
+installOhMyPosh(){
+    curl -s https://ohmyposh.dev/install.sh | sudo bash -s
+    
 }
+
 
 linkConfig() {
     ## Check if a bashrc file is already there.
@@ -100,12 +94,13 @@ linkConfig() {
     echo -e "${YELLOW}Linking new bash config file...${RC}"
     ## Make symbolic link.
     ln -svf ${GITPATH}/.bashrc ${HOME}/.bashrc
-    ln -svf ${GITPATH}/starship.toml ${HOME}/.config/starship.toml
 }
 
 checkEnv
 installDepend
-installStarship
+installOhMyPosh
+
+
 if linkConfig; then
     echo -e "${GREEN}Done!\nrestart your shell to see the changes.${RC}"
 else
